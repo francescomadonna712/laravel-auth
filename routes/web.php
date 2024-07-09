@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\BoolfolioController;
 
 /*
@@ -18,6 +19,7 @@ use App\Http\Controllers\BoolfolioController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::resource('boolfolios', BoolfolioController::class);
 
 Route::middleware(['auth'])
