@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\boolfolio;
+use App\Http\Controllers\Controller; 
+
+use App\Models\Boolfolio;
 use Illuminate\Http\Request;
 
 class BoolfolioController extends Controller
@@ -13,7 +15,7 @@ class BoolfolioController extends Controller
     public function index()
     {
         $boolfolios = Boolfolio::all();
-        return view('boolfolios.index', compact('boolfolios'));
+        return view('admin.boolfolios.index', compact('boolfolios'));
     }
 
     /**
@@ -21,7 +23,7 @@ class BoolfolioController extends Controller
      */
     public function create()
     {
-        return view('boolfolios.create');
+        return view('admin.boolfolios.create');
     }
 
     /**
