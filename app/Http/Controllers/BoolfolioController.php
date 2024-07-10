@@ -35,17 +35,17 @@ class BoolfolioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(boolfolio $boolfolio)
+    public function show()
     {
-        //
+        return view('boolfolios.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(boolfolio $boolfolio)
+    public function edit()
     {
-        //
+        return view('boolfolios.edit');
     }
 
     /**
