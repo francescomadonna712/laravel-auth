@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('boolfolios', function (Blueprint $table) {
             $table->id();
+            $table->string('autore');
+            $table->string('nome-progetto');
+            $table->text('descrizione');
+            $table->date('inizio');
+            $table->date('fine');
             $table->timestamps();
         });
     }
