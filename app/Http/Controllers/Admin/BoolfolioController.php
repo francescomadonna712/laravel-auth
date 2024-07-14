@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
 
 use App\Models\Boolfolio;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class BoolfolioController extends Controller
 {
@@ -14,7 +15,9 @@ class BoolfolioController extends Controller
      */
     public function index()
     {
+
         $boolfolios = Boolfolio::all();
+
         return view('admin.boolfolios.index', compact('boolfolios'));
     }
 
@@ -31,15 +34,29 @@ class BoolfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newproject = new Boolfolio();
+        $newproject->nome = $data["nome"];
+        $newproject->autore = $data["autore"];
+        $newproject->inizio = $data["inizio"];
+        $newproject->fine = $data["fine"];
+        $newproject->descrizione = $data["descrizione"];
+        $newproject->save();
+
+        return redirect()->route("admin.show", $newproject->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
-        return view('boolfolios.show');
+        $project = project::find($id);
+        $data = [
+            "Comic" => $project
+        ];
+        return view('boolfolios.show', $data);
     }
 
     /**

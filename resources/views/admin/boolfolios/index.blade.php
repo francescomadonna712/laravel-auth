@@ -10,6 +10,15 @@
 
 <body>
     <h1>Index 1</h1>
+    @foreach ($boolfolios as $boolfolio)
+        <li>
+            <h2>{{ $boolfolio->nome }}</h2>
+            <p><strong>Autore:</strong> {{ $boolfolio->autore }}</p>
+            <p><strong>Descrizione:</strong> {{ $boolfolio->descrizione }}</p>
+            <p><strong>Inizio:</strong> {{ $boolfolio->inizio }}</p>
+            <p><strong>Fine:</strong> {{ $boolfolio->fine }}</p>
+        </li>
+    @endforeach
 </body>
 
 </html>
