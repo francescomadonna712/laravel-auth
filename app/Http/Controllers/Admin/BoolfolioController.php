@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\Boolfolio;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
@@ -16,7 +15,7 @@ class BoolfolioController extends Controller
     public function index()
     {
 
-        $boolfolios = Boolfolio::all();
+        $boolfolios = Boolfolio::orderByDesc('id')->paginate();
 
         return view('admin.boolfolios.index', compact('boolfolios'));
     }
@@ -52,11 +51,6 @@ class BoolfolioController extends Controller
      */
     public function show(string $id)
     {
-        $project = project::find($id);
-        $data = [
-            "Comic" => $project
-        ];
-        return view('boolfolios.show', $data);
     }
 
     /**

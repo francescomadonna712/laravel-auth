@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PhpParser\Node\NullableType;
 
 return new class extends Migration
 {
@@ -13,11 +14,12 @@ return new class extends Migration
     {
         Schema::create('boolfolios', function (Blueprint $table) {
             $table->id();
-            $table->string('autore');
+
             $table->string('nome');
             $table->text('descrizione');
-            $table->date('inizio');
-            $table->date('fine');
+            $table->string('cover_image')->nullable();
+
+
             $table->timestamps();
         });
     }

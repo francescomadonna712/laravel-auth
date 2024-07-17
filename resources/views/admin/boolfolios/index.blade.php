@@ -1,24 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+    <div class="p-3 mb-4 bg-light">
+        <div class="container py-3">
+            <h1 class="display-5 fw-bold">boolfolio Francesco</h1>
 
-<body>
-    <h1>Index 1</h1>
-    @foreach ($boolfolios as $boolfolio)
-        <li>
-            <h2>{{ $boolfolio->nome }}</h2>
-            <p><strong>Autore:</strong> {{ $boolfolio->autore }}</p>
-            <p><strong>Descrizione:</strong> {{ $boolfolio->descrizione }}</p>
-            <p><strong>Inizio:</strong> {{ $boolfolio->inizio }}</p>
-            <p><strong>Fine:</strong> {{ $boolfolio->fine }}</p>
-        </li>
-    @endforeach
-</body>
+        </div>
+    </div>
 
-</html>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cover Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @forelse ($boolfolios as $boolfolio)
+                        <tr class="">
+                            <td scope="row">{{ $boolfolio->id }}</td>
+                            <td>{{ $boolfolio->nome }}</td>
+                            <td>
+                                <img width="140px" src="{{ $boolfolio->cover_image }}" alt="">
+                            </td>
+                            <td> views\edit\delete</td>
+                        </tr>
+                    @empty
+                        <tr class="">
+                            <td scope="row" colspan="3">niente da mostrare</td>
+
+                        </tr>
+                    @endforelse
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+@endsection
