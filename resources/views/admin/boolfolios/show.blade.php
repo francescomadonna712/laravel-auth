@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+    <div class="container d-flex py-5 justify-content-center">
+        <div class="card" style="width: 65rem;">
+            <img src="{{ asset('storage/' . $boolfolio->cover_image) }}" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ $boolfolio->nome }}</h5>
+                <p class="card-text">
+                <p>{{ $boolfolio->descrizione }}</p>
+                </p>
 
-<body>
-    <h1>show</h1>
-</body>
+            </div>
+        </div>
+    </div>
 
-</html>
+    <a class="btn btn-primary" href="{{ route('admin.boolfolios.index') }}" role="button">Torna alla lista</a>
+@endsection
