@@ -11,4 +11,15 @@ class boolfolio extends Model
     use HasFactory;
 
     protected $fillable = ['nome', 'descrizione', 'cover_image'];
+
+
+    /**
+     * The technologies that belong to the boolfolio
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function technologies(): BelongsToMany
+    {
+        return $this->belongsToMany(Technology::class);
+    }
 }

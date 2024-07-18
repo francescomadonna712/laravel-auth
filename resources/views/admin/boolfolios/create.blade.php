@@ -46,6 +46,20 @@
                 @enderror
             </div>
 
+
+            <div class="mb-3">
+                <label for="technologies" class="form-label">Tecnologie Usate</label>
+                <select class="form-select form-select-lg" name="technologies[]" id="technologies" multiple>
+
+                    @forelse ($technologies as $technology)
+                        <option value="{technology->id}">{{ $technology->name }}</option>
+                    @empty
+                        <option selected>Select one</option>
+                    @endforelse
+                </select>
+            </div>
+
+
             <div class="mb-3">
                 <label for="Descrizione" class="form-label">Descrizione</label>
                 <textarea class="form-control" name="descrizione" id="descrizione" rows="3"{{ old('descrizione') }}></textarea>

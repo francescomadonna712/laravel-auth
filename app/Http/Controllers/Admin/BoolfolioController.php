@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Boolfolio;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,7 +29,8 @@ class BoolfolioController extends Controller
      */
     public function create()
     {
-        return view('admin.boolfolios.create');
+        $technologies = Technology::all();
+        return view('admin.boolfolios.create', compact('technologies'));
     }
 
     /**
@@ -51,7 +53,12 @@ class BoolfolioController extends Controller
         }
         //dd($val_data);
 
-        Boolfolio::create($val_data);
+        $bool = Boolfolio::create($val_data);
+
+        if ($request->has('technologies')) {
+
+            $bool->technologies()->attach($request['technologies']);
+        }
 
         return to_route('admin.boolfolios.index')->with('message', 'progetto creato');
     }

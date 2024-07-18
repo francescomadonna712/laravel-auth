@@ -8,8 +8,6 @@
                 <h5 class="card-title">{{ $boolfolio->nome }}</h5>
                 <p class="card-text">
                 <p>{{ $boolfolio->descrizione }}</p>
-                </p>
-
             </div>
         </div>
     </div>
