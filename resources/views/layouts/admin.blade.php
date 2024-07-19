@@ -50,9 +50,19 @@
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('admin.boolfolios.index') }}" class="btn btn-dark">
+                                    <i class="fa-solid fa-list fa-lg fa-fw"></i> lista progetti
+                                </a>
+                            </li>
+
+
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                             </li>
 
                         </ul>
