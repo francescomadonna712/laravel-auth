@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BoolfolioController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Models\Boolfolio;
+
 use Illuminate\Auth\Events\Verified;
 
 // Rotte protette dall'autenticazione e con prefisso 'admin'

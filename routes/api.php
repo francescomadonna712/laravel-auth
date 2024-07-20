@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\BoolfolioController as ApiBoolfolioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,4 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('boolfolio', [BoolfolioController::class, 'index']);
+Route::get('boolfolio', [ApiBoolfolioController::class, 'index']);
+
+//risponde a api/data
+Route::get('data', [BoolfolioController::class, 'index']);

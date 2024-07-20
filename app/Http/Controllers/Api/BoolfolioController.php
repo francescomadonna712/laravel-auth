@@ -11,11 +11,17 @@ class BoolfolioController extends Controller
 {
     public function index()
     {
+
+        //opzione1
+        //se passi una collezzione di dati o un oggetto verranno convertiti in json
+        // return boolfolio::all();
+
+        //opzione2
+        //(return/response/json)
         return response()->json([
-            'succes' => true,
-            'projects' =>
-            boolfolio::orderByDesc('id')
-                ->paginate(3)
+
+            'success' => true,
+            'boolfolio' => boolfolio::with(['technologies'])->orderByDesc('id')->paginate(),
         ]);
     }
 }

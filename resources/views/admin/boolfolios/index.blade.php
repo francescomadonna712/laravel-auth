@@ -105,6 +105,7 @@
                         </tr>
                     @endforelse
 
+                    {{ $boolfolios->links('pagination::bootstrap-5') }}
 
                 </tbody>
             </table>
