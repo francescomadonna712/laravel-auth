@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BoolfolioSeeder::class,
             UserSeeder::class,
-            CategorySeeder::class,
+
         ]);
     }
 }
